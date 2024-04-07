@@ -1,5 +1,17 @@
+import { wrapper, store } from "../config/redux/store";
 import "@/styles/globals.css";
+import { Fragment } from "react";
+import { Provider } from "react-redux";
+// import "@/styles/Style.module.css";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function App({ Component, pageProps }) {
+  return (
+    <Fragment>
+      <Provider store={store}>
+        <Component {...pageProps} />;
+      </Provider>
+    </Fragment>
+  );
 }
+
+export default wrapper.withRedux(App);
